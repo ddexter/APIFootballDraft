@@ -4,14 +4,14 @@ package models
   * @author ddexter
   */
 object DraftPosition {
-  sealed abstract class Position(val abbvPosition: String)
-  case object RUNNING_BACK extends Position("RB")
-  case object WIDE_RECEIVER extends Position("WR")
-  case object TIGHT_END extends Position("TE")
-  case object KICKER extends Position("K")
-  case object QUARTER_BACK extends Position("QB")
-  case object DEFENSE_SPECIAL_TEAMS extends Position("DST")
+  sealed abstract class DraftPosition(val abbvPosition: String)
+  case object RUNNING_BACK extends DraftPosition("RB")
+  case object WIDE_RECEIVER extends DraftPosition("WR")
+  case object TIGHT_END extends DraftPosition("TE")
+  case object KICKER extends DraftPosition("K")
+  case object QUARTER_BACK extends DraftPosition("QB")
+  case object DEFENSE_SPECIAL_TEAMS extends DraftPosition("DST")
 
-  val positions = Set(RUNNING_BACK, WIDE_RECEIVER, TIGHT_END, KICKER, QUARTER_BACK, DEFENSE_SPECIAL_TEAMS)
-  val positionsByName = positions.map(p => p.abbvPosition -> p)
+  val draftPositions = Set(RUNNING_BACK, WIDE_RECEIVER, TIGHT_END, KICKER, QUARTER_BACK, DEFENSE_SPECIAL_TEAMS)
+  val draftPositionsByName = draftPositions.map(p => p.abbvPosition -> p)
 }

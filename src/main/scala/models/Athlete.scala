@@ -1,6 +1,6 @@
 package models
 
-import models.DraftPosition.Position
+import models.DraftPosition.DraftPosition
 
 /**
   * @author ddexter
@@ -8,6 +8,6 @@ import models.DraftPosition.Position
 class Athlete(val id: Int,
               val firstName: String,
               val lastName: String,
-              val position: Position,
+              val position: DraftPosition,
               val team: String,
               val rank: Int)
