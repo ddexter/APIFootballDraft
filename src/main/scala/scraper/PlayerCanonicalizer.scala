@@ -18,7 +18,7 @@ class PlayerCanonicalizer(api: API) {
     }
   }
 
-  private def canonicalizeAthlete(athlete: Athlete, queryResult: QueryResult) =
+  private def canonicalizeAthlete(athlete: Athlete, queryResult: QueryResult): Athlete =
     new Athlete(queryResult.id,
       queryResult.firstName,
       queryResult.lastName,
