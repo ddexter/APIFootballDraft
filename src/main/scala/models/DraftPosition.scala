@@ -13,5 +13,5 @@ object DraftPosition {
   case object DEFENSE_SPECIAL_TEAMS extends DraftPosition("DST")
 
   val draftPositions = Set(RUNNING_BACK, WIDE_RECEIVER, TIGHT_END, KICKER, QUARTER_BACK, DEFENSE_SPECIAL_TEAMS)
-  val draftPositionsByName = draftPositions.map(p => p.abbvPosition -> p)
+  val draftPositionsByName = draftPositions.map(p => p.abbvPosition -> p).toMap
 }

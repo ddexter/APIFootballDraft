@@ -10,9 +10,6 @@ import scraper.Scraper.JDoc
   * @author ddexter
   */
 case class ESPN(position: DraftPosition) extends ScraperStrategy {
-  // 1. Adrian Peterson
-  val NAME_RANK_PATTERN = """(\d+)\.\s+([a-zA-Z\-\'\. ]+) ([a-zA-Z\-\']+)""".r
-  val NUM_COL = 3
 
   override def parse(jDoc: JDoc): Seq[Athlete] = {
     val elements = jDoc.select("tbody > tr.last").iterator.toList
@@ -21,10 +18,16 @@ case class ESPN(position: DraftPosition) extends ScraperStrategy {
 
   private def getAthleteFromRow(row: Element, position: DraftPosition): Option[Athlete] = {
     val tds = row.select("td")
-    if (tds.size() != NUM_COL) None
+    if (tds.size() != ESPN.NUM_COL) None
     else tds.get(0).text match {
-      case NAME_RANK_PATTERN(rank, first, last) => Some(new Athlete(rank.toInt, first, last, position, tds.get(1).text, rank.toInt))
+      case ESPN.NAME_RANK_PATTERN(rank, first, last) => Some(new Athlete(rank.toInt, first, last, position, tds.get(1).text, rank.toInt))
       case _ => None
     }
   }
+}
+
+object ESPN {
+  // 1. Adrian Peterson
+  private val NAME_RANK_PATTERN = """(\d+)\.\s+([a-zA-Z\-\'\. ]+) ([a-zA-Z\-\']+)""".r
+  private val NUM_COL = 3
 }

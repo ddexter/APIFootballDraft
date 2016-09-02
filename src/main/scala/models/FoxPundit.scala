@@ -13,5 +13,5 @@ object FoxPundit {
   case object DJ_FOSTER extends FoxPundit("DJFoster", 5)
 
   val foxPundits = Set(AVERAGE, FOWLER, MEYER, HALPIN, DJ_FOSTER)
-  val foxPunditsByName = foxPundits.map(p => p.name -> p)
+  val foxPunditsByName = foxPundits.map(p => p.name -> p).toMap
 }
